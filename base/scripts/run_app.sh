@@ -1,4 +1,7 @@
+#!/bin/bash
 set -e
+
+echo '{ "allow_root": true }' > /root/.bowerrc
 
 if [ -d /bundle ]; then
   cd /bundle

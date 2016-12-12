@@ -5,6 +5,10 @@ ARG NODE_VERSION
 ENV NODE_VERSION ${NODE_VERSION:-4.6.2}
 ONBUILD ENV NODE_VERSION ${NODE_VERSION:-4.6.2}
 
+ONBUILD RUN bash echo '{ "allow_root": true }' > /root/.bowerrc
+ONBUILD RUN bash echo '{ "allow_root": true }' > $METEORD_DIR/.bowerrc
+ONBUILD RUN bash echo '{ "allow_root": true }' > ./
+ONBUILD RUN bash echo '{ "allow_root": true }' > ./app
 ONBUILD COPY ./ /app
 ONBUILD RUN bash $METEORD_DIR/lib/install_meteor.sh
 ONBUILD RUN bash $METEORD_DIR/lib/build_app.sh
